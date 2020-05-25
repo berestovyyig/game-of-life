@@ -1,0 +1,64 @@
+.options-side {
+  width: 320px;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    padding: 15px;
+  }
+}
+.canvas-side {
+  padding: 15px;
+  width: calc(~'100% - 320px');
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    flex: 1 0 auto;
+  }
+}
+canvas {
+  display: block;
+  cursor: pointer;
+}
+.game-life-description {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  color: yellowgreen;
+  margin-bottom: 15px;
+  &:hover,&:focus,&:active {
+    color: yellowgreen;
+    text-decoration: none;
+  }
+}
+mat-card {
+  width: 100%;
+}
+.button-cover {
+  width: 100%;
+  padding-bottom: 16px;
+  button {
+    width: calc(~"50% - 8px");
+  }
+}
+.button-full-cover {
+  padding-bottom: 16px;
+  button {
+    width: 100%;
+  }
+}
+.card-content-cover {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.count-generations {
+  padding: 15px 0px;
+  text-align: center;
+}
+.radio-button {
+  margin: 0px 15px;
+}
+.slider {
+  width: 100%;
+  max-width: 100%;
+}
+.slider-toggle {
+  width: 100%;
+}

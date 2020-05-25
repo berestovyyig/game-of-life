@@ -1,0 +1,77 @@
+app-root {
+  width: 100%;
+  display: block;
+  height: 100vh;
+  @media screen and (max-width: 991px) {
+    min-height: 100vh;
+    height: initial;
+    height: auto;
+  }
+}
+
+app-life {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+  }
+}
+
+body {
+  background-color: #303030;
+  font-family: Roboto, sans-serif;
+}
+
+button, input, a {
+  &:focus,&:active, &hover {
+    outline: none;
+  }
+}
+.mat-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section {
+  padding: 15px 0px;
+}
+.title-label {
+  width: 100%;
+}
+.radio-group {
+  margin: 0 -15px;
+  width: calc(~"100% + 30px");
+}
+.slider {
+  padding: 8px 0;
+  display: block;
+}
+.result {
+  &-cover {
+    width: 100%;
+  }
+  &-count {
+    &-title {
+      width: 100%;
+      padding: 15px 0px 0px;
+      text-align: center;
+    }
+  }
+  &-item {
+    &-title {
+      text-align: center;
+    }
+    &-cover {
+      width: 50%;
+      padding: 0px 15px 0px 0px;
+      &:last-child {
+        padding: 0px 0px 0px 15px;
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}

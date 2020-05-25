@@ -1,0 +1,100 @@
+<div class="flex flex-align-center flex-justify-center flex-wrap canvas-side">
+  <canvas #canvas (click)="detectCoordinates( $event )"></canvas>
+</div>
+<div class="flex flex-align-stretch flex-justify-center flex-wrap options-side">
+  <mat-card class="flex flex-align-start flex-justify-center flex-wrap">
+    <div class="card-content">
+      <mat-card-title>
+        <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules" [class]="{ 'game-life-description' : true }"  rel="nofollow noopener" target="_blank">Conway's Game Of Life</a>
+      </mat-card-title>
+      <mat-card-content class="card-content-cover">
+        <span>Tray To Find Best Combinations Of Life</span>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <div class="options">
+        <section class="flex flex-align-center flex-justify-start flex-wrap section">
+          <div class="title-label">
+            <h4>Chose Form Of Cells</h4>
+          </div>
+          <mat-radio-group class="radio-group" (change)="changeForm( $event )" [value]="form">
+            <mat-radio-button class="radio-button" value="circle">
+              Circle
+            </mat-radio-button>
+            <mat-radio-button class="radio-button" value="rectangle">
+              Rectangle
+            </mat-radio-button>
+          </mat-radio-group>
+        </section>
+        <mat-divider></mat-divider>
+        <section class="section">
+          <div class="title-label">
+            <h4>Set Border Width</h4>
+          </div>
+          <mat-slider class="slider" thumbLabel tickInterval="auto" min="1" max="5" step="1" [value]="lineWidth" (change)="setLineWidth( $event )"></mat-slider>
+        </section>
+        <mat-divider></mat-divider>
+        <section class="section">
+          <div class="title-label">
+            <h4>Set Grid Cells</h4>
+          </div>
+          <mat-slider class="slider" thumbLabel tickInterval="auto" min="6" max="30" step="1" [value]="gridCount" (change)="setGridCount( $event )"></mat-slider>
+        </section>
+        <mat-divider></mat-divider>
+        <section class="section">
+          <mat-card-content >
+            <h4>Game Options Rules</h4>
+          </mat-card-content>
+          <mat-slide-toggle class="slider-toggle" (change)="changeUniqGenerations( $event )" [checked]="isUniqGenerations" color="accent">Detect Only Uniq Generations</mat-slide-toggle>
+          <mat-slide-toggle class="slider-toggle" (change)="changeExactMatchParentGenerations( $event )" [checked]="isExactMatchParentGenerations" color="accent">Detect Exact Match Parent Generations</mat-slide-toggle>
+        </section>
+        <mat-divider *ngIf="isExactMatchParentGenerations && isUniqGenerations"></mat-divider>
+      </div>
+      <div class="count-generations" *ngIf="isExactMatchParentGenerations && isUniqGenerations">
+        Number Of Generations {{ countGenerations }}
+      </div>
+      <div class="button-cover flex flex-justify-between flex-align-center flex-wrap">
+        <button
+          *ngIf="!lifeGenerateStatus"
+          (click)="startLife()"
+          mat-raised-button
+          color="accent"
+        >Start Life</button>
+        <button
+          *ngIf="lifeGenerateStatus"
+          (click)="startLife()"
+          [disabled]="!stopLifeStatus"
+          mat-raised-button
+        >Resume Life</button>
+        <button
+          (click)="stopLife()"
+          [disabled]="!lifeGenerateStatus || stopLifeStatus"
+          mat-raised-button
+          color="primary"
+        >Stop Life</button>
+      </div>
+      <div class="button-full-cover">
+        <button
+          (click)="clearCells()"
+          [disabled]="clearStatus"
+          mat-raised-button
+          color="warn"
+        ><mat-icon>delete</mat-icon> Clear</button>
+      </div>
+      <div class="button-full-cover">
+        <button
+          (click)="showRules()"
+          mat-stroked-button
+          color="accent"
+        >Show Rules</button>
+      </div>
+      <div class="button-full-cover">
+        <button
+          (click)="showResults()"
+          mat-stroked-button
+          color="accent"
+          [disabled]="results"
+        >Show Results</button>
+      </div>
+    </div>
+  </mat-card>
+</div>

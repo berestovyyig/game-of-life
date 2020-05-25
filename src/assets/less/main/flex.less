@@ -1,0 +1,120 @@
+.flex-direction(@string) {
+  -webkit-flex-direction: @string;
+  -ms-flex-direction: @string;
+  flex-direction: @string;
+}
+.flex-content(@string) {
+  -webkit-justify-content: @string;
+  justify-content: @string;
+}
+.flex-align(@string) {
+  -webkit-align-items: @string;
+  align-items: @string;
+}
+.flex-wrap(@string) {
+  -webkit-flex-wrap: @string;
+  -ms-flex-wrap: @string;
+  flex-wrap: @string;
+}
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform;
+  -o-transform:  @transform;
+  transform: @transform;
+}
+.flex-align-self(@string) {
+  -webkit-align-self: @string;
+  -ms-flex-item-align: @string;
+  -ms-grid-row-align: @string;
+  align-self: @string;
+}
+.flex-display() {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.top-calc(@calc) {
+  top: -webkit-calc(@calc);
+  top: -moz-calc(@calc);
+  top: calc(@calc)
+}
+.left-calc(@calc) {
+  left: -webkit-calc(@calc);
+  left: -moz-calc(@calc);
+  left: calc(@calc);
+}
+.width-calc(@calc) {
+  width: -webkit-calc(@calc);
+  width: -moz-calc(@calc);
+  width: calc(@calc);
+}
+.height-calc(@calc) {
+  height: -webkit-calc(@calc);
+  height: -moz-calc(@calc);
+  height: calc(@calc);
+}
+.right-calc(@calc) {
+  right: -webkit-calc(@calc);
+  right: -moz-calc(@calc);
+  right: calc(@calc);
+}
+.bottom-calc(@calc) {
+  bottom: -webkit-calc(@calc);
+  bottom: -moz-calc(@calc);
+  bottom: calc(@calc);
+}
+.gradient-two(@from, @too) {
+  background: @from;
+  background: -moz-linear-gradient(top, @from 0%, @too 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, @from), color-stop(100%, @too));
+  background: -webkit-linear-gradient(top, @from 0%, @too 100%);
+  background: -o-linear-gradient(top, @from 0%, @too 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@too));
+  background: linear-gradient(to bottom, @from 0%, @too 100%);
+}
+.flex {
+  .flex-display()
+}
+.flex-wrap {
+  .flex-wrap(wrap);
+}
+.flex-nowrap {
+  .flex-wrap(nowrap);
+}
+.flex-justify-center {
+  .flex-content(center);
+}
+.flex-justify-start {
+  .flex-content(flex-start);
+}
+.flex-justify-end {
+  .flex-content(flex-end);
+}
+.flex-justify-around {
+  .flex-content(space-around);
+}
+.flex-justify-between {
+  .flex-content(space-between);
+}
+.flex-align-stretch {
+  .flex-align(stretch);
+}
+.flex-align-start {
+  .flex-align(flex-start);
+}
+.flex-align-end {
+  .flex-align(flex-end);
+}
+.flex-align-center {
+  .flex-align(center);
+}
