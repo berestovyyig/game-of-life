@@ -11,6 +11,7 @@ export class LifeService {
   private _generationsArray: Array<any> = [];
   public firstGeneration: Array<Array<boolean>> = [];
   public endGeneration: Array<Array<boolean>> = [];
+  public generationCodeCombination: string;
   constructor(
     private _canvasService: CanvasService,
     private _storeOptionsService: StoreOptionsService
@@ -178,7 +179,7 @@ export class LifeService {
 
   public getCodeCombinations( generation: Array<Array<boolean>> ): string {
     let code = '';
-    this._cellArray.forEach( ( row, indexX ) => {
+    generation.forEach( ( row, indexX ) => {
       row.forEach( ( status, indexY ) => {
         if ( status ) {
           code += indexX + '-' + indexY;

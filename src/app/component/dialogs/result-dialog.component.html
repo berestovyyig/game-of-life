@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Results</h1>
 <div mat-dialog-content>
   <mat-tab-group>
-    <mat-tab *ngFor="let result of results; let i = index;">
+    <mat-tab *ngFor="let result of data.results; let i = index;">
       <ng-template mat-tab-label>Result {{ i + 1 }}</ng-template>
       <div class="result-cover flex flex-align-start flex-justify-center flex-wrap">
         <div class="result-count-title">
@@ -11,7 +11,7 @@
           <div class="result-item-title">
               <h4 matCardTitle>Start Generations</h4>
           </div>
-          <div class="result-item-image">
+          <div class="result-item-image flex flex-align-center flex-justify-center">
             <img [src]="result.imageStart" alt="{{ i }}-{{ result.countGenerations }}">
           </div>
         </div>
@@ -19,7 +19,7 @@
           <div class="result-item-title">
             <h4 matCardTitle>End Generations</h4>
           </div>
-          <div class="result-item-image">
+          <div class="result-item-image flex flex-align-center flex-justify-center">
             <img [src]="result.imageEndGenerations" alt="{{ i }}-{{ result.countGenerations }}">
           </div>
         </div>

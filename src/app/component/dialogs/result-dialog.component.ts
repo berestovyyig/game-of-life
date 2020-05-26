@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
-import { StoreResultService, Result } from '../../services/store-result.service';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Result } from '../../services/store-result.service';
 
+export interface DialogResult {
+  results: Array<Result>;
+}
 
 @Component({
   selector: 'result-dialog',
@@ -9,10 +13,12 @@ import { StoreResultService, Result } from '../../services/store-result.service'
 
 export class DialogResultDialog {
   constructor(
-    private _storeResultService: StoreResultService
+    @Inject(MAT_DIALOG_DATA) public data: DialogResult
   ) {
-  }
-  public get results(): Array<Result> {
-    return this._storeResultService.results.reverse();
+    if ( !this.data || this.data && !this.data.results ) {
+      console.log( this.data );
+      this.data.results = [];
+    }
   }
 }
+

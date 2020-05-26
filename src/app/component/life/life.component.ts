@@ -43,7 +43,11 @@ export class LifeComponent implements OnInit, OnDestroy {
   }
 
   public showResults(): void {
-    this._dialog.open( DialogResultDialog );
+    this._dialog.open( DialogResultDialog,{
+      data: {
+        results: this._storeResultService.results.reverse()
+      }
+    });
   }
 
   public get results(): boolean {
@@ -144,7 +148,7 @@ export class LifeComponent implements OnInit, OnDestroy {
     clearTimeout( this._timer );
   }
 
-  public showRules() {
+  public showRules() {;
     this._dialog.open( DialogRulesDialog );
   }
 
